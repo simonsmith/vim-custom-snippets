@@ -1,14 +1,18 @@
 priority 1
 
-snippet afn "Anonymous function expression"
-function(${1}) {
-  ${2}
-}
+snippet =>> "Inline arrow function" A
+(${1:args}) => {$2};
 endsnippet
 
-snippet fn "Named function expression"
-function ${1:name}(${2}) {
-  ${3}
+snippet c=> "Const Function" bA
+const ${1:name} = (${2:args}) => {
+	return $4;
+}${3:;}
+endsnippet
+
+snippet ec=> "Export const Function" bA
+export const ${1:name} = (${2:args}) => {
+	return $4;
 }
 endsnippet
 
@@ -33,6 +37,48 @@ switch (${1:condition}) {
 }
 endsnippet
 
-snippet cl
-console.log(${1:obj})
+snippet cl "console.log(...)"
+console.log('${2:$1: }', ${1});
+endsnippet
+
+snippet desc "Jest - describe(name, fn)"
+describe('$1', () => {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet test "Jest - test(name, fn)"
+test('$1', () => {
+	$2
+});
+endsnippet
+
+snippet it "Jest - alias for test()"
+it('$1', () => {
+	$2
+});
+endsnippet
+
+snippet aftera "Jest - afterAll(fn)"
+afterAll(() => {
+	$1
+});
+endsnippet
+
+snippet aftere "Jest - afterEach(fn)"
+afterEach(() => {
+	$1
+});
+endsnippet
+
+snippet beforea "Jest - beforeAll(fn)"
+beforeAll(() => {
+	$1
+});
+endsnippet
+
+snippet beforee "Jest - beforeEach(fn)"
+beforeEach(() => {
+	$1
+});
 endsnippet
